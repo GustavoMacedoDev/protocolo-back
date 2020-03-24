@@ -19,12 +19,14 @@ public class Usuario implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
+	@Column(unique = true)
 	private String login;
+	@Column(unique = true)
+	private String email;
 	@Column
 	private String senha;
 	@Column
-	private String status;
+	private String status = "ATIVO";
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -60,6 +62,15 @@ public class Usuario implements Serializable{
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
